@@ -217,7 +217,7 @@ body, html {
   #mensaje {
     font-size: 2em;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 50px;
   }
 
   .character-container {
@@ -234,3 +234,4 @@ body, html {
     max-width: 90%;
   }
 }
+
