@@ -1,13 +1,9 @@
 /* Reset básico */
 body, html {
-  margin: 0;
-  padding: 0;
   background: url('Grand Line.jpeg') no-repeat center center fixed;
   background-size: cover;
-  font-family: sans-serif;
 }
 
-/* Contenedor principal */
 #ocean {
   width: 100vw;
   height: 100vh;
@@ -23,40 +19,12 @@ body, html {
   color: yellow;
   font-size: 3em;
   text-shadow: 2px 2px 5px black;
-  text-align: center;
   animation: bounce 2s infinite;
 }
 
 @keyframes bounce {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-20px); }
-}
-
-#mensaje .name {
-  display: inline-flex;
-  align-items: center;
-}
-
-#mensaje .pirate-flag {
-  width: 40px;
-  margin-left: 30px;
-}
-
-/* Selector de música */
-#music-selector {
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(0,0,0,0.5);
-  padding: 10px 15px;
-  border-radius: 10px;
-  z-index: 1000;
-}
-
-#music-selector select {
-  font-size: 1em;
-  margin-left: 10px;
 }
 
 /* Personajes */
@@ -94,18 +62,114 @@ body, html {
   to { opacity: 1; }
 }
 
-/* Posición de personajes en PC */
+/* Posición de personajes */
 #luffyContainer { bottom: 50px; left: 10%; }
 #BrookContainer { bottom: 50px; right: 10%; }
 #ChopperContainer { bottom: 50px; left: 45%; }
-#RobinContainer { top: 80px; left: 50%; transform: translateX(-50%); }
 
-/* Botón Robin */
-#robinButton {
+/* Tesoro */
+#treasureX {
   position: absolute;
-  top: 350px;
+  bottom: 763px;
+  left: 89%;
+  transform: translateX(-50%);
+  font-size: 2.8em;
+  color: red;
+  cursor: pointer;
+  text-shadow: 2px 2px 5px black;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: translateX(-50%) scale(1); }
+  50% { transform: translateX(-50%) scale(1.2); }
+}
+
+/* Animación de la pala */
+.shovel {
+  position: absolute;
+  bottom: 730px;
+  left: 90%;
+  transform: translateX(-50%);
+  width: 100px;
+  animation: dig 2s ease forwards;
+}
+
+@keyframes dig {
+  0% { transform: translateX(-50%) rotate(0deg); }
+  25% { transform: translateX(-50%) rotate(-30deg); }
+  50% { transform: translateX(-50%) rotate(30deg); }
+  100% { transform: translateX(-50%) rotate(0deg); opacity: 0; }
+}
+
+/* Animaciones varias */
+@keyframes float {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, -15px); }
+}
+
+@keyframes jumpAnim {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-50px); }
+}
+
+.jump {
+  animation: jumpAnim 0.6s ease;
+}
+
+/* Notas musicales */
+.musical-notes {
+  position: absolute;
+  top: -50px;
+  font-size: 2em;
+  animation: floatNotes 1.5s ease forwards;
+}
+
+@keyframes floatNotes {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-60px); opacity: 0; }
+}
+
+#mensaje .name {
+  display: inline-flex;
+  align-items: center;
+}
+
+#mensaje .pirate-flag {
+  width: 40px;
+  margin-left: 30px;
+}
+
+/* Selector de música */
+#music-selector {
+  position: fixed;
+  top: 20px;
   left: 50%;
   transform: translateX(-50%);
+  background: rgba(0,0,0,0.5);
+  padding: 10px 15px;
+  border-radius: 10px;
+  z-index: 1000;
+}
+#music-selector select {
+  font-size: 1em;
+  margin-left: 10px;
+}
+
+/* --- ROBIN --- */
+#RobinContainer {
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Botón Ver */
+#robinButton {
+  margin-top: 15px;
   padding: 10px 20px;
   background: linear-gradient(145deg, #ffeb3b, #fbc02d);
   border: 2px solid #f9a825;
@@ -120,81 +184,53 @@ body, html {
 }
 
 #robinButton:hover {
-  transform: translateX(-50%) scale(1.1);
+  transform: scale(1.1);
   background: linear-gradient(145deg, #fff176, #fbc02d);
   box-shadow: 0 8px 15px rgba(0,0,0,0.4);
 }
 
 #robinButton:active {
-  transform: translateX(-50%) scale(0.95);
+  transform: scale(0.95);
   box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
 
-/* Tesoro */
-#treasureX {
-  position: absolute;
-  bottom: 730px;
-  left: 90%;
-  transform: translateX(-50%);
-  font-size: 2.8em;
-  color: red;
-  cursor: pointer;
-  text-shadow: 2px 2px 5px black;
-  animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { transform: translateX(-50%) scale(1); }
-  50% { transform: translateX(-50%) scale(1.2); }
-}
-
-/* Animaciones */
-.jump { animation: jumpAnim 0.6s ease; }
-@keyframes jumpAnim { 0%,100%{transform:translateY(0);}50%{transform:translateY(-50px);} }
-.musical-notes { position: absolute; top: -50px; font-size:2em; animation: floatNotes 1.5s ease forwards; }
-@keyframes floatNotes { 0%{transform:translateY(0);opacity:1;}100%{transform:translateY(-60px);opacity:0;} }
-
-/* ----------------- Ajustes móviles ----------------- */
+/* Ajustes responsivos solo para teléfono */
 @media (max-width: 600px) {
   #ocean {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    height: auto; /* que se adapte al contenido */
-    padding-top: 20px;
+    height: auto;
+    padding-bottom: 40px;
+  }
+
+  #RobinContainer {
+    position: static;
+    transform: none;
+    margin-top: 30px;
+  }
+
+  #robinButton {
+    position: static;
+    width: 70%;
+    font-size: 1em;
+    margin-top: 10px;
   }
 
   #mensaje {
     font-size: 2em;
-    margin-bottom: 20px;
-    position: static; /* deja que fluya en la columna */
-    transform: none;
+    text-align: center;
+    margin-top: 20px;
   }
 
-  #RobinContainer, #luffyContainer, #BrookContainer, #ChopperContainer {
-    position: static; /* se pone en flujo de columna */
-    margin-bottom: 20px; /* espacio entre personajes */
-    transform: none;
-  }
-
-  #RobinContainer #robinButton {
-    margin-top: 10px; /* espacio debajo de Robin */
-    font-size: 1em;
-    padding: 8px 15px;
+  .character-container {
+    position: static;
+    margin: 25px auto;
   }
 
   .character {
-    width: 100px; /* personajes más pequeños */
+    width: 180px;
   }
 
-  #treasureX {
-    bottom: auto;
-    left: auto;
-    position: static;
-    margin-bottom: 20px;
-    font-size: 2em;
+  .speech-bubble {
+    font-size: 0.95em;
+    max-width: 90%;
   }
 }
-
-
