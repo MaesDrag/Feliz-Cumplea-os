@@ -7,30 +7,20 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body onclick="unmuteMusic()">
+
   <audio id="bgMusic" src="memories.mp3" autoplay loop muted></audio>
   <audio id="brookMusic" src="Bink's Sake.mp3"></audio>
 
+  <!-- Selector de música -->
   <div id="music-selector">
-    <label for="bgMusicChoice" style="color: yellow; font-size:1.2em;">Elige música de fondo:</label>
+    <label for="bgMusicChoice">Elige música de fondo:</label>
     <select id="bgMusicChoice">
       <option value="memories.mp3">Memories</option>
-      <option value="op12.mp3">OP12</option>
+      <option value="op12.mp3">One Piece OP12</option>
     </select>
   </div>
 
-  <!-- ROBIN -->
- <<div class="character-container" id="RobinContainer">
-  <img src="robin.gif" alt="Robin" class="character">
-  <div class="speech-bubble">
-    ¿Quieres saber qué episodio del anime o del manga salió en tu cumpleaños?
-  </div>
-</div>
-
-<!-- Botón afuera del globo -->
-<button id="robinButton" style="position: absolute; top: 330px; left: 50%; transform: translateX(-50%); padding: 10px 20px; cursor: pointer; z-index: 2000;">
-  Ver
-</button>
-
+  <!-- Mensaje principal -->
   <div id="ocean">
     <h1 id="mensaje">
       ¡Feliz Cumpleaños, 
@@ -41,21 +31,32 @@
       !
     </h1>
 
-    <!-- Personajes -->
-    <div class="character-container" id="luffyContainer">
-      <img src="luffy.gif" alt="Luffy" class="character">
-      <div class="speech-bubble">¡Prepárate para la aventura, Adriana!</div>
+    <!-- Personajes en flex container -->
+    <div id="characters">
+      <div class="character-container" id="luffyContainer">
+        <img src="luffy.gif" alt="Luffy" class="character">
+        <div class="speech-bubble">¡Prepárate para la aventura, Adriana!</div>
+      </div>
+
+      <div class="character-container" id="BrookContainer">
+        <img src="brook.gif" alt="Brook" class="character">
+        <div class="speech-bubble">¡Yohohoho! ¡Feliz cumpleaños, Adriana!</div>
+      </div>
+
+      <div class="character-container" id="ChopperContainer">
+        <img src="Chopper.gif" alt="Chopper" class="character">
+        <div class="speech-bubble">¡Chopper está aquí para desearte un cumpleaños adorable!</div>
+      </div>
     </div>
 
-    <div class="character-container" id="BrookContainer">
-      <img src="brook.gif" alt="Brook" class="character">
-      <div class="speech-bubble">¡Yohohoho! ¡Feliz cumpleaños, Adriana!</div>
+    <!-- Robin -->
+    <div class="character-container" id="RobinContainer">
+      <img src="robin.gif" alt="Robin" class="character">
+      <div class="speech-bubble">¿Quieres saber qué episodio del anime o del manga salió en tu cumpleaños?</div>
     </div>
 
-    <div class="character-container" id="ChopperContainer">
-      <img src="Chopper.gif" alt="Chopper" class="character">
-      <div class="speech-bubble">¡Chopper está aquí para desearte un cumpleaños adorable!</div>
-    </div>
+    <!-- Botón Ver -->
+    <button id="robinButton">Ver</button>
 
     <!-- Tesoro -->
     <div id="treasureX">❌</div>
