@@ -1,0 +1,214 @@
+/* Reset básico */
+body, html {
+  background: url('Grand Line.jpeg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+#ocean {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Mensaje principal */
+#mensaje {
+  color: yellow;
+  font-size: 3em;
+  text-shadow: 2px 2px 5px black;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Personajes */
+.character-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.character {
+  width: 150px;
+  transition: transform 0.3s ease;
+}
+
+.character-container:hover .character {
+  transform: scale(1.1);
+}
+
+/* Globos de diálogo */
+.speech-bubble {
+  background: rgba(255,255,255,0.9);
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 1em;
+  max-width: 200px;
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* Posición de personajes */
+#luffyContainer { bottom: 50px; left: 10%; }
+#BrookContainer { bottom: 50px; right: 10%; }
+#ChopperContainer { bottom: 50px; left: 45%; }
+
+/* Tesoro - versión nueva */
+#treasureX {
+  position: absolute;
+  bottom: 763px; /* puedes ajustar esto */
+  left: 89%;
+  transform: translateX(-50%);
+  font-size: 2.8em;
+  color: red;
+  cursor: pointer;
+  text-shadow: 2px 2px 5px black;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: translateX(-50%) scale(1); }
+  50% { transform: translateX(-50%) scale(1.2); }
+}
+
+/* Animación de la pala */
+.shovel {
+  position: absolute;
+  bottom: 730px;
+  left: 90%;
+  transform: translateX(-50%);
+  width: 100px;
+  animation: dig 2s ease forwards;
+}
+
+@keyframes dig {
+  0% { transform: translateX(-50%) rotate(0deg); }
+  25% { transform: translateX(-50%) rotate(-30deg); }
+  50% { transform: translateX(-50%) rotate(30deg); }
+  100% { transform: translateX(-50%) rotate(0deg); opacity: 0; }
+}
+
+/* Animación flotante (para otros elementos) */
+@keyframes float {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, -15px); }
+}
+
+@keyframes jumpAnim {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-50px); }
+}
+
+.jump {
+  animation: jumpAnim 0.6s ease;
+}
+
+/* Notas musicales para Brook */
+.musical-notes {
+  position: absolute;
+  top: -50px;
+  font-size: 2em;
+  animation: floatNotes 1.5s ease forwards;
+}
+
+@keyframes floatNotes {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-60px); opacity: 0; }
+}
+#mensaje .name {
+  display: inline-flex;      /* para alinear texto e imagen horizontalmente */
+  align-items: center;       /* centra la bandera con la línea de texto */
+}
+
+#mensaje .pirate-flag {
+  width: 40px;               /* tamaño de la bandera */
+  margin-left: 30px;          /* espacio entre “Adriana” y la bandera */
+}
+#music-selector {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.5);
+  padding: 10px 15px;
+  border-radius: 10px;
+  z-index: 1000;
+}
+#music-selector select {
+  font-size: 1em;
+  margin-left: 10px;
+}
+
+#RobinContainer {
+  position: absolute;
+  top: 80px; /* entre el selector y el mensaje principal */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#robinButton {
+  position: absolute;
+  top: 700px; /* lo bajamos un poco más */
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  background: linear-gradient(145deg, #ffeb3b, #fbc02d); /* amarillo brillante */
+  border: 2px solid #f9a825;
+  border-radius: 12px;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #000;
+  cursor: pointer;
+  z-index: 2000;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+  transition: all 0.2s ease;
+}
+
+#robinButton:hover {
+  transform: translateX(-50%) scale(1.1);
+  background: linear-gradient(145deg, #fff176, #fbc02d);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.4);
+}
+
+#robinButton:active {
+  transform: translateX(-50%) scale(0.95);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+/* Ajustes responsivos */
+@media (max-width: 600px) {
+  /* GIF y foto del episodio más pequeñas */
+  #robinButton + div img, #robinButton + div p + img {
+    width: 80%; /* se adapta al ancho de la pantalla */
+    max-width: 300px;
+  }
+
+  /* Texto del episodio más legible */
+  #robinButton + div p {
+    font-size: 0.9em;
+    padding: 10px;
+    max-width: 90%;
+  }
+
+  /* GIF */
+  #robinButton + div img:first-of-type {
+    width: 70%;
+    max-width: 250px;
+  }
+}
