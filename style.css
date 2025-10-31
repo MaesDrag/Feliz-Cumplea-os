@@ -156,30 +156,21 @@ body, html {
 
 /* ----------------- Ajustes móviles ----------------- */
 @media (max-width: 600px) {
-  /* Reducir tamaños */
+  /* Reducir tamaño de personajes */
   .character { width: 100px; }
-  #mensaje { font-size: 2em; padding: 0 10px; text-align: center; }
 
-  /* Personajes se acomodan en columna o fila */
-  #luffyContainer, #BrookContainer, #ChopperContainer, #RobinContainer {
-    position: relative;
-    bottom: auto;
-    left: auto;
-    right: auto;
-    top: auto;
-    margin: 10px auto;
-    display: inline-block;
-  }
+  /* Reducir fuente de mensaje principal */
+  #mensaje { font-size: 2em; padding: 0 10px; }
 
-  /* Botón más abajo */
-  #robinButton {
-    top: auto;
-    bottom: 150px;
-    font-size: 1em;
-    padding: 8px 15px;
-  }
+  /* Botón más pequeño */
+  #robinButton { font-size: 1em; padding: 8px 15px; }
 
-  /* Tesoro ajustado */
-  #treasureX { bottom: auto; margin-bottom: 30px; }
+  /* Tesoro más pequeño */
+  #treasureX { font-size: 2em; }
+  
+  /* Imagen del episodio y GIF responsivos */
+  #robinButton + div img { width: 80%; max-width: 300px; }
+  #robinButton + div p { font-size: 0.9em; padding: 10px; }
 }
+
 
