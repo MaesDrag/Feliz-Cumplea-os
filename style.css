@@ -174,7 +174,7 @@ body, html {
   /* Botón más abajo */
   #robinButton {
     top: auto;
-    bottom: 250px;
+    bottom: 150px;
     font-size: 1em;
     padding: 8px 15px;
   }
@@ -182,3 +182,4 @@ body, html {
   /* Tesoro ajustado */
   #treasureX { bottom: auto; margin-bottom: 30px; }
 }
+
