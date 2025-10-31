@@ -156,32 +156,45 @@ body, html {
 
 /* ----------------- Ajustes móviles ----------------- */
 @media (max-width: 600px) {
+  #ocean {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: auto; /* que se adapte al contenido */
+    padding-top: 20px;
+  }
+
   #mensaje {
     font-size: 2em;
-    top: 20px;  /* más arriba pero dentro de la pantalla */
+    margin-bottom: 20px;
+    position: static; /* deja que fluya en la columna */
+    transform: none;
+  }
+
+  #RobinContainer, #luffyContainer, #BrookContainer, #ChopperContainer {
+    position: static; /* se pone en flujo de columna */
+    margin-bottom: 20px; /* espacio entre personajes */
+    transform: none;
+  }
+
+  #RobinContainer #robinButton {
+    margin-top: 10px; /* espacio debajo de Robin */
+    font-size: 1em;
+    padding: 8px 15px;
   }
 
   .character {
     width: 100px; /* personajes más pequeños */
   }
 
-  #luffyContainer { bottom: 60px; left: 5%; }
-  #BrookContainer { bottom: 60px; right: 5%; }
-  #ChopperContainer { bottom: 60px; left: 40%; }
-
-  #RobinContainer {
-    top: 200px; /* debajo del mensaje */
-    left: 50%;
-    transform: translateX(-50%);
+  #treasureX {
+    bottom: auto;
+    left: auto;
+    position: static;
+    margin-bottom: 20px;
+    font-size: 2em;
   }
-
-  #RobinContainer #robinButton {
-    margin-top: 10px;
-    font-size: 1em;
-    padding: 8px 15px;
-  }
-
-  #treasureX { font-size: 2em; bottom: 650px; }
 }
 
 
